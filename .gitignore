@@ -1,0 +1,18 @@
+# Secretos — NUNCA subir
+.env
+.env.local
+
+# Dependencias
+node_modules/
+.playwright-mcp/
+
+# Salida del build
+dist/
+
+# PDF generado
+*.pdf
+!docs/info.pdf
+
+# Sistema
+.DS_Store
+Thumbs.db

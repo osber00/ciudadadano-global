@@ -1,0 +1,172 @@
+/* =============================================================================
+   CIUDADANO GLOBAL — Tokens del sistema de diseño
+   -----------------------------------------------------------------------------
+   Equilibrio cromático objetivo (sección 3 del brief):
+     70 % neutros · 20 % turquesa · 8 % coral · 2 % mostaza
+   Todos los colores deben leerse como TINTA IMPRESA SOBRE PAPEL:
+   desaturados, mates, nunca neón.
+============================================================================= */
+
+:root {
+  /* ---------------------------------------------------------------------------
+     NEUTROS — la base de papel (70 %)
+  --------------------------------------------------------------------------- */
+  --paper-100: #faf6ec; /* papel más claro, tarjetas elevadas */
+  --paper-200: #f4ecdc; /* papel de tarjeta */
+  --paper-300: #efe7d6; /* BASE de página */
+  --paper-400: #e6dcc6; /* papel en sombra, pliegues */
+  --paper-500: #d9c9a8; /* arena / kraft */
+  --paper-600: #c4b291; /* arena oscura, bordes rasgados */
+  --kraft: #c9b183; /* cinta de embalar, etiquetas */
+  --kraft-dark: #ab9469;
+
+  --ink: #1c1a18; /* negro tinta — titulares */
+  --ink-800: #2e2a26;
+  --ink-600: #4a443c; /* texto de lectura */
+  --ink-400: #6f675c; /* texto secundario */
+  --ink-300: #8d8478; /* metadatos, pies */
+  --ink-200: #b3aa9c; /* separadores */
+  --ink-100: #d5cbba; /* líneas muy suaves */
+
+  /* ---------------------------------------------------------------------------
+     ACENTO PRINCIPAL — turquesa apagado (20 %)
+  --------------------------------------------------------------------------- */
+  --teal-900: #0d4448;
+  --teal-800: #10585c;
+  --teal: #1b6e72; /* canónico */
+  --teal-600: #2d8286;
+  --teal-400: #4e9a9c;
+  --teal-200: #9cc3c4;
+  --teal-100: #d3e5e5;
+  --teal-050: #e9f2f2;
+
+  /* ---------------------------------------------------------------------------
+     SEGUNDO ACENTO — coral / terracota juvenil (8 %)
+  --------------------------------------------------------------------------- */
+  --coral-900: #8e3626;
+  --coral-800: #a94530;
+  --coral: #c4553f; /* canónico */
+  --coral-600: #d06a54;
+  --coral-400: #dd8f7b;
+  --coral-200: #eec4b6;
+  --coral-100: #f7e2da;
+
+  /* ---------------------------------------------------------------------------
+     TERCER ACENTO — mostaza suave (2 %, solo apoyo)
+  --------------------------------------------------------------------------- */
+  --mustard-800: #a8802f;
+  --mustard: #c9a24a;
+  --mustard-400: #ddc084;
+  --mustard-200: #f0e3c4;
+
+  /* ---------------------------------------------------------------------------
+     ROLES SEMÁNTICOS
+  --------------------------------------------------------------------------- */
+  --bg-page: var(--paper-300);
+  --bg-card: var(--paper-100);
+  --bg-card-alt: var(--paper-200);
+  --text-title: var(--ink);
+  --text-body: var(--ink-600);
+  --text-muted: var(--ink-400);
+  --rule: var(--ink-100);
+
+  /* ---------------------------------------------------------------------------
+     TIPOGRAFÍA
+     Display  : Anton        — condensada, pesada, editorial, alto contraste
+     Alt      : Oswald       — subtítulos, etiquetas, numeración
+     Lectura  : Source Sans 3 — humanista, muy legible en pantalla e impresión
+     Máquina  : Special Elite — SOLO etiquetas, sellos, notas breves
+     Mano     : Caveat        — SOLO postales y anotaciones marginales
+  --------------------------------------------------------------------------- */
+  --font-display: 'Anton', 'Archivo Black', 'Haettenschweiler', 'Impact', sans-serif;
+  --font-alt: 'Oswald', 'Archivo Narrow', 'Roboto Condensed', sans-serif;
+  --font-body: 'Source Sans 3', 'Source Sans Pro', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
+  --font-hand: 'Caveat', 'Segoe Script', cursive;
+
+  /* Escala tipográfica fluida, anclada al ancho de la página, no del viewport.
+     La unidad base es 1cqi = 1 % del ancho del contenedor de página.
+     Esto garantiza que la proporción del diseño se conserve en cualquier
+     tamaño: pantalla grande, móvil o A4 impreso. */
+  --fs-display-xl: 11.4cqi;
+  --fs-display-lg: 8.6cqi;
+  --fs-display-md: 6.4cqi;
+  --fs-display-sm: 4.8cqi;
+  --fs-title: 3.9cqi;
+  --fs-subtitle: 2.95cqi;
+  --fs-lead: 2.5cqi;
+  --fs-body: 2.16cqi;
+  --fs-small: 1.9cqi;
+  --fs-tiny: 1.62cqi;
+  --fs-micro: 1.4cqi;
+
+  /* ---------------------------------------------------------------------------
+     RETÍCULA Y ESPACIADO — múltiplos del ancho de página
+  --------------------------------------------------------------------------- */
+  --gutter: 3.1cqi;
+  --margin-page: 7.4cqi;
+  --space-2xs: 0.7cqi;
+  --space-xs: 1.2cqi;
+  --space-sm: 2cqi;
+  --space-md: 3.2cqi;
+  --space-lg: 4.6cqi;
+  --space-xl: 6.4cqi;
+  --space-2xl: 9cqi;
+
+  /* ---------------------------------------------------------------------------
+     PROFUNDIDAD FÍSICA — sombras de capas de papel superpuestas.
+     Suaves y cortas: el papel está apoyado, no flotando.
+  --------------------------------------------------------------------------- */
+  --shadow-paper: 0 0.12cqi 0.5cqi rgba(48, 38, 24, 0.09),
+    0 0.7cqi 1.6cqi rgba(48, 38, 24, 0.07);
+  --shadow-lift: 0 0.2cqi 0.7cqi rgba(48, 38, 24, 0.12),
+    0 1.3cqi 2.8cqi rgba(48, 38, 24, 0.11);
+  --shadow-cut: 0 0.25cqi 0.75cqi rgba(48, 38, 24, 0.22);
+  --shadow-modal: 0 2rem 5rem rgba(28, 22, 14, 0.34);
+
+  /* ---------------------------------------------------------------------------
+     MOVIMIENTO — corto, físico, nunca rebotes exagerados
+  --------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-paper: cubic-bezier(0.34, 1.32, 0.64, 1);
+  --dur-fast: 160ms;
+  --dur: 280ms;
+  --dur-slow: 520ms;
+  --dur-page: 640ms;
+
+  /* ---------------------------------------------------------------------------
+     GEOMETRÍA DE PÁGINA — proporción A4 (210 × 297 mm = 1 : 1.4142)
+  --------------------------------------------------------------------------- */
+  --page-ratio: 1 / 1.41421356;
+  --page-w: 210mm;
+  --page-h: 297mm;
+
+  /* Radios: el papel casi no tiene esquinas redondeadas. Muy contenido. */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-pill: 999px;
+
+  /* Capas */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-hotspot: 40;
+  --z-chrome: 100;
+  --z-panel: 200;
+  --z-modal: 300;
+}
+
+/* -----------------------------------------------------------------------------
+   Preferencia de movimiento reducido: se conserva la jerarquía, se elimina
+   el desplazamiento. Nunca se elimina el cambio de opacidad porque es lo que
+   comunica que algo ha ocurrido.
+----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 1ms;
+    --dur-slow: 1ms;
+    --dur-page: 1ms;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "act-historia",
+  "page": "23 · Actividad 3, Mi historia",
+  "shape": "landscape",
+  "accent": "coral",
+  "model": "gpt-image-1.5",
+  "quality": "high",
+  "size": "1536x1024",
+  "background": "transparent",
+  "promptHash": "7ae9e6616ce0",
+  "generatedAt": "2026-08-19T20:18:13.854Z",
+  "usage": {
+    "input_tokens": 502,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 502
+    },
+    "output_tokens": 6546,
+    "output_tokens_details": {
+      "image_tokens": 6208,
+      "text_tokens": 338
+    },
+    "total_tokens": 7048
+  },
+  "prompt": "A horizontal strip of small photographs pegged to a taut string with wooden clothespins, like a personal timeline. The photographs show soft, unreadable everyday moments — a child, a school, a landscape, a group of friends.\n\nFRAMING AND INTENT: The photos are deliberately soft and abstract. No dates, no captions, no text.\n\n— — —\n\nA REAL DOCUMENTARY PHOTOGRAPH, shot on 35mm film with a 50mm lens, natural available light. Photojournalism. Candid, unposed, authentic. This is a photograph, NOT an illustration and NOT a render.\n\nThe photograph has been physically CUT OUT with scissors and is presented on a TRANSPARENT BACKGROUND: only the subject remains, with a thin, slightly uneven white paper edge (about 3px) following its silhouette, showing small hand-cut irregularities. Nothing else — no scene background, no page, no canvas, no frame, no shadow plane, no sticker outline, no glow.\n\nTONE: black and white, desaturated, with a subtle warm tint toward cream and ink. Muted, matte, printed-on-paper quality with a fine halftone print grain. Low contrast, soft midtones. NOT vivid, NOT colourful, NOT sepia.\n\nPEOPLE (when present): authentic human diversity — varied skin tones, cultural backgrounds, genders, ages, body types and features. Contemporary everyday clothing. Natural body language and real expressions. No cultural stereotypes, no ethnic costumes, no national flags, no eye contact with the camera unless explicitly requested.\n\nABSOLUTELY NO TEXT ANYWHERE IN THE IMAGE. No letters, no words, no numbers, no handwriting, no writing, no scribbles resembling script, no signage, no labels, no captions, no watermarks, no logos. Every page, screen, sign, map and notebook visible in the photograph must be COMPLETELY BLANK or too out of focus to read. This rule is absolute and overrides every other instruction.\n\nDO NOT PRODUCE: illustration, drawing, painting, cartoon, anime, 3D render, CGI, plastic or clay look, glossy finish, digital gradients, dramatic or cinematic lighting, studio strobes, neon colours, oversaturation, heavy sepia, vintage filter, generic corporate stock photography, generic Canva aesthetic, borders, vignettes, drop shadows on the background.\n\nUltra high resolution, ultra detailed, sharp focus on the subject, premium editorial quality."
+}

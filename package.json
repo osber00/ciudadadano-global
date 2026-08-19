@@ -1,0 +1,23 @@
+{
+  "name": "ciudadano-global",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ciudadano Global: Un viaje para transformar el mundo desde donde estás — recurso web interactivo y PDF premium.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "images": "node scripts/generate-images.mjs",
+    "images:check": "node scripts/check-images.mjs",
+    "pdf": "npm run build && node scripts/build-pdf.mjs",
+    "pdf:only": "node scripts/build-pdf.mjs",
+    "clean": "node -e \"import('node:fs').then(fs=>fs.rmSync('dist',{recursive:true,force:true}))\""
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

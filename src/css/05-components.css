@@ -1,0 +1,411 @@
+/* =============================================================================
+   COMPONENTES EDITORIALES
+   Piezas de papel reutilizables que componen el collage de cada página.
+============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   TARJETA DE PAPEL
+   Unidad básica: un trozo de papel apoyado sobre la página.
+----------------------------------------------------------------------------- */
+.card {
+  position: relative;
+  padding: var(--space-md);
+  background-color: var(--paper-100);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 18% 8%, rgba(255, 255, 251, 0.9), transparent 66%),
+    radial-gradient(ellipse 70% 60% at 94% 92%, rgba(210, 194, 164, 0.26), transparent 62%);
+  box-shadow: var(--shadow-paper);
+  transform: rotate(var(--card-rot, 0deg));
+}
+
+.card--torn { padding-block: calc(var(--space-md) * 1.25); }
+.card--kraft { background-color: var(--paper-400); }
+.card--tinted { background-color: var(--teal-050); }
+.card--coral { background-color: var(--coral-100); }
+
+/* Franja de color en el borde superior, como pestaña de archivo. */
+.card--tabbed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.75cqi;
+  background: var(--card-tab, var(--teal));
+}
+
+.card__title {
+  font-family: var(--font-alt);
+  font-size: var(--fs-subtitle);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink-800);
+}
+
+.card__body {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--ink-600);
+}
+
+.card__title + .card__body { margin-top: 0.7em; }
+
+/* -----------------------------------------------------------------------------
+   INSIGNIA CIRCULAR CON ICONO
+   Réplica del patrón de las referencias: círculo sólido + icono en negativo.
+----------------------------------------------------------------------------- */
+.badge {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--badge-size, 8.4cqi);
+  height: var(--badge-size, 8.4cqi);
+  border-radius: 50%;
+  background: var(--badge-bg, var(--teal));
+  color: var(--paper-100);
+  box-shadow: 0 0.18cqi 0.5cqi rgba(48, 38, 24, 0.22);
+}
+
+.badge--coral { --badge-bg: var(--coral); }
+.badge--mustard { --badge-bg: var(--mustard); }
+.badge--ink { --badge-bg: var(--ink); }
+.badge--outline {
+  background: transparent;
+  border: 0.32cqi solid var(--teal);
+  color: var(--teal);
+  box-shadow: none;
+}
+
+.badge--sm { --badge-size: 5.6cqi; }
+.badge--lg { --badge-size: 11.5cqi; }
+
+.badge__icon {
+  width: 52%;
+  height: 52%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.badge__icon--filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* -----------------------------------------------------------------------------
+   LISTA CON MARCA DE VERIFICACIÓN
+   Patrón exacto de la página de referencia: círculo turquesa + check.
+----------------------------------------------------------------------------- */
+.checklist { display: grid; gap: var(--space-sm); }
+
+.checklist__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.checklist__mark {
+  flex: none;
+  width: 4.6cqi;
+  height: 4.6cqi;
+  margin-top: 0.15em;
+  border-radius: 50%;
+  border: 0.28cqi solid var(--teal);
+  display: grid;
+  place-items: center;
+  color: var(--teal);
+}
+
+.checklist__mark svg {
+  width: 54%;
+  height: 54%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.checklist__text {
+  font-size: var(--fs-body);
+  line-height: 1.48;
+  color: var(--ink-600);
+}
+
+/* Separador coral discontinuo entre elementos, como en la referencia. */
+.checklist--ruled .checklist__item + .checklist__item {
+  padding-top: var(--space-sm);
+  border-top: 1.5px dashed var(--coral-400);
+}
+
+/* -----------------------------------------------------------------------------
+   RECUADRO DE CONCEPTO CLAVE
+----------------------------------------------------------------------------- */
+.concept {
+  position: relative;
+  padding: var(--space-md);
+  padding-left: calc(var(--space-md) + 1.1cqi);
+  background: var(--paper-200);
+  box-shadow: var(--shadow-paper);
+}
+
+.concept::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1.1cqi;
+  background: var(--concept-accent, var(--teal));
+}
+
+.concept--coral { --concept-accent: var(--coral); }
+.concept--mustard { --concept-accent: var(--mustard); }
+
+.concept__label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-family: var(--font-alt);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--concept-accent, var(--teal));
+}
+
+.concept__text {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--ink-600);
+}
+
+/* -----------------------------------------------------------------------------
+   PREGUNTA DESTACADA
+   Banda de papel con icono de localizador, como el cierre de la referencia.
+----------------------------------------------------------------------------- */
+.question-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--paper-100);
+  box-shadow: var(--shadow-lift);
+}
+
+.question-banner__text {
+  font-family: var(--font-alt);
+  font-size: var(--fs-title);
+  font-weight: 600;
+  line-height: 1.06;
+  color: var(--coral-800);
+}
+
+/* -----------------------------------------------------------------------------
+   POSTAL
+----------------------------------------------------------------------------- */
+.postcard {
+  position: relative;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--paper-200);
+  border: 1px solid rgba(120, 104, 76, 0.3);
+  box-shadow: var(--shadow-paper);
+  transform: rotate(var(--postcard-rot, 2deg));
+}
+
+.postcard::after {
+  content: '';
+  position: absolute;
+  inset: 0.7cqi;
+  border: 1px dashed rgba(120, 104, 76, 0.34);
+  pointer-events: none;
+}
+
+.postcard__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+/* -----------------------------------------------------------------------------
+   SELLO POSTAL
+----------------------------------------------------------------------------- */
+.stamp {
+  position: relative;
+  width: var(--stamp-size, 13cqi);
+  aspect-ratio: 0.82;
+  padding: 0.9cqi;
+  background: var(--paper-100);
+  transform: rotate(var(--stamp-rot, -5deg));
+  filter: drop-shadow(0 0.14cqi 0.4cqi rgba(48, 38, 24, 0.2));
+  /* Perforación: puntos recortados en todo el perímetro. */
+  -webkit-mask-image:
+    radial-gradient(circle 1.05cqi at 50% 0, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 50% 100%, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 0 50%, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 100% 50%, transparent 96%, #000 100%),
+    linear-gradient(#000, #000);
+  -webkit-mask-size: 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 100% 100%;
+  -webkit-mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y, no-repeat;
+  -webkit-mask-composite: source-out, source-out, source-out, source-out;
+  mask-image:
+    radial-gradient(circle 1.05cqi at 50% 0, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 50% 100%, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 0 50%, transparent 96%, #000 100%),
+    radial-gradient(circle 1.05cqi at 100% 50%, transparent 96%, #000 100%),
+    linear-gradient(#000, #000);
+  mask-size: 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 3.1cqi 3.1cqi, 100% 100%;
+  mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y, no-repeat;
+  mask-composite: subtract, subtract, subtract, subtract, add;
+}
+
+.stamp__inner {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  gap: 0.5cqi;
+  border: 1px solid rgba(120, 104, 76, 0.4);
+  background: var(--stamp-bg, var(--teal-050));
+  color: var(--teal-800);
+  text-align: center;
+}
+
+.stamp__caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Matasellos circular. */
+.postmark {
+  position: absolute;
+  width: var(--postmark-size, 14cqi);
+  aspect-ratio: 1;
+  border: 0.28cqi solid var(--ink-300);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--ink-300);
+  opacity: 0.55;
+  transform: rotate(var(--postmark-rot, -12deg));
+  pointer-events: none;
+}
+
+.postmark::before,
+.postmark::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 0.2cqi;
+  background: currentColor;
+}
+.postmark::before { top: 22%; }
+.postmark::after { bottom: 22%; }
+
+/* -----------------------------------------------------------------------------
+   ELEMENTOS FÍSICOS: chincheta, clip, hilo
+----------------------------------------------------------------------------- */
+.pin {
+  position: absolute;
+  width: var(--pin-size, 3.6cqi);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.85), transparent 46%),
+    radial-gradient(circle at 50% 50%, var(--pin-color, var(--coral)), var(--pin-shade, var(--coral-900)));
+  box-shadow: 0 0.22cqi 0.5cqi rgba(48, 38, 24, 0.38);
+  pointer-events: none;
+}
+
+.pin--teal { --pin-color: var(--teal-600); --pin-shade: var(--teal-900); }
+.pin--mustard { --pin-color: var(--mustard); --pin-shade: var(--mustard-800); }
+
+.clip {
+  position: absolute;
+  width: var(--clip-w, 4.4cqi);
+  aspect-ratio: 0.42;
+  border: 0.42cqi solid var(--ink-200);
+  border-radius: var(--radius-pill);
+  border-bottom-color: transparent;
+  transform: rotate(var(--clip-rot, 8deg));
+  filter: drop-shadow(0 0.16cqi 0.32cqi rgba(48, 38, 24, 0.3));
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+   RUTA DISCONTINUA
+   Línea de viaje. Se anima al entrar en la página.
+----------------------------------------------------------------------------- */
+.route {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.route__path {
+  fill: none;
+  stroke: var(--route-color, var(--coral));
+  stroke-width: var(--route-width, 2.2);
+  stroke-linecap: round;
+  stroke-dasharray: 9 8;
+  opacity: 0.8;
+}
+
+.route__marker {
+  fill: none;
+  stroke: var(--route-color, var(--coral));
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* Trazado progresivo cuando la página se activa. */
+.page.is-active .route__path {
+  animation: route-draw 1.8s var(--ease-out) forwards;
+}
+
+@keyframes route-draw {
+  from { stroke-dashoffset: 480; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page.is-active .route__path { animation: none; }
+}
+
+/* -----------------------------------------------------------------------------
+   FRAGMENTO DE MAPA
+   Textura recurrente de identidad. Nunca protagonista salvo que se indique.
+----------------------------------------------------------------------------- */
+.map-scrap {
+  position: absolute;
+  overflow: hidden;
+  opacity: var(--map-opacity, 1);
+  filter: drop-shadow(0 0.3cqi 0.7cqi rgba(48, 38, 24, 0.16));
+}
+
+.map-scrap svg { width: 100%; height: 100%; }
+
+/* -----------------------------------------------------------------------------
+   REJILLAS DE MAQUETACIÓN
+----------------------------------------------------------------------------- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); }
+.grid-sidebar { display: grid; grid-template-columns: 1fr 0.82fr; gap: var(--space-lg); }
+.grid-sidebar--left { grid-template-columns: 0.82fr 1fr; }
+
+.stack { display: flex; flex-direction: column; }
+.stack--gap-sm { gap: var(--space-sm); }
+.stack--gap-md { gap: var(--space-md); }
+.stack--gap-lg { gap: var(--space-lg); }
+
+.row { display: flex; align-items: center; gap: var(--space-sm); }
+.row--top { align-items: flex-start; }
+.spacer { flex: 1 1 auto; }

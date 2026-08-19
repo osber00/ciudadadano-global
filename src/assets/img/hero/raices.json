@@ -1,0 +1,26 @@
+{
+  "id": "raices",
+  "page": "19 · Raíces y apertura",
+  "shape": "portrait",
+  "accent": "mustard",
+  "model": "gpt-image-1.5",
+  "quality": "high",
+  "size": "1024x1536",
+  "background": "transparent",
+  "promptHash": "72df88f812f6",
+  "generatedAt": "2026-08-19T20:17:34.386Z",
+  "usage": {
+    "input_tokens": 491,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 491
+    },
+    "output_tokens": 6552,
+    "output_tokens_details": {
+      "image_tokens": 6240,
+      "text_tokens": 312
+    },
+    "total_tokens": 7043
+  },
+  "prompt": "The base of a large old tree where thick roots spread visibly above the ground, with a young person’s hand resting flat on the bark. Fine moss and soil texture are clearly visible.\n\nFRAMING AND INTENT: The roots occupy most of the frame. Tactile, grounded, warm.\n\n— — —\n\nA REAL DOCUMENTARY PHOTOGRAPH, shot on 35mm film with a 50mm lens, natural available light. Photojournalism. Candid, unposed, authentic. This is a photograph, NOT an illustration and NOT a render.\n\nThe photograph has been physically CUT OUT with scissors and is presented on a TRANSPARENT BACKGROUND: only the subject remains, with a thin, slightly uneven white paper edge (about 3px) following its silhouette, showing small hand-cut irregularities. Nothing else — no scene background, no page, no canvas, no frame, no shadow plane, no sticker outline, no glow.\n\nTONE: black and white, desaturated, with a subtle warm tint toward cream and ink. Muted, matte, printed-on-paper quality with a fine halftone print grain. Low contrast, soft midtones. NOT vivid, NOT colourful, NOT sepia.\n\nPEOPLE (when present): authentic human diversity — varied skin tones, cultural backgrounds, genders, ages, body types and features. Contemporary everyday clothing. Natural body language and real expressions. No cultural stereotypes, no ethnic costumes, no national flags, no eye contact with the camera unless explicitly requested.\n\nABSOLUTELY NO TEXT ANYWHERE IN THE IMAGE. No letters, no words, no numbers, no handwriting, no writing, no scribbles resembling script, no signage, no labels, no captions, no watermarks, no logos. Every page, screen, sign, map and notebook visible in the photograph must be COMPLETELY BLANK or too out of focus to read. This rule is absolute and overrides every other instruction.\n\nDO NOT PRODUCE: illustration, drawing, painting, cartoon, anime, 3D render, CGI, plastic or clay look, glossy finish, digital gradients, dramatic or cinematic lighting, studio strobes, neon colours, oversaturation, heavy sepia, vintage filter, generic corporate stock photography, generic Canva aesthetic, borders, vignettes, drop shadows on the background.\n\nUltra high resolution, ultra detailed, sharp focus on the subject, premium editorial quality."
+}

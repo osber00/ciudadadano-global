@@ -1,0 +1,26 @@
+{
+  "id": "conectados",
+  "page": "07 · Nunca antes tan conectados",
+  "shape": "landscape",
+  "accent": "coral",
+  "model": "gpt-image-1.5",
+  "quality": "high",
+  "size": "1536x1024",
+  "background": "transparent",
+  "promptHash": "7281e93b1f4d",
+  "generatedAt": "2026-08-19T20:16:05.840Z",
+  "usage": {
+    "input_tokens": 518,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 518
+    },
+    "output_tokens": 6588,
+    "output_tokens_details": {
+      "image_tokens": 6208,
+      "text_tokens": 380
+    },
+    "total_tokens": 7106
+  },
+  "prompt": "A candid street-level crowd of visibly diverse people crossing a busy urban intersection: students, a woman in a headscarf, an older man, a person with a bicycle, someone with a laptop bag. Several are mid-stride, a couple are talking to each other.\n\nFRAMING AND INTENT: Documentary street photography, slight motion in the figures. Cut out as a single horizontal band of people, no buildings or sky.\n\n— — —\n\nA REAL DOCUMENTARY PHOTOGRAPH, shot on 35mm film with a 50mm lens, natural available light. Photojournalism. Candid, unposed, authentic. This is a photograph, NOT an illustration and NOT a render.\n\nThe photograph has been physically CUT OUT with scissors and is presented on a TRANSPARENT BACKGROUND: only the subject remains, with a thin, slightly uneven white paper edge (about 3px) following its silhouette, showing small hand-cut irregularities. Nothing else — no scene background, no page, no canvas, no frame, no shadow plane, no sticker outline, no glow.\n\nTONE: black and white, desaturated, with a subtle warm tint toward cream and ink. Muted, matte, printed-on-paper quality with a fine halftone print grain. Low contrast, soft midtones. NOT vivid, NOT colourful, NOT sepia.\n\nPEOPLE (when present): authentic human diversity — varied skin tones, cultural backgrounds, genders, ages, body types and features. Contemporary everyday clothing. Natural body language and real expressions. No cultural stereotypes, no ethnic costumes, no national flags, no eye contact with the camera unless explicitly requested.\n\nABSOLUTELY NO TEXT ANYWHERE IN THE IMAGE. No letters, no words, no numbers, no handwriting, no writing, no scribbles resembling script, no signage, no labels, no captions, no watermarks, no logos. Every page, screen, sign, map and notebook visible in the photograph must be COMPLETELY BLANK or too out of focus to read. This rule is absolute and overrides every other instruction.\n\nDO NOT PRODUCE: illustration, drawing, painting, cartoon, anime, 3D render, CGI, plastic or clay look, glossy finish, digital gradients, dramatic or cinematic lighting, studio strobes, neon colours, oversaturation, heavy sepia, vintage filter, generic corporate stock photography, generic Canva aesthetic, borders, vignettes, drop shadows on the background.\n\nUltra high resolution, ultra detailed, sharp focus on the subject, premium editorial quality."
+}
