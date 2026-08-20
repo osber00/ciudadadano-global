@@ -101,7 +101,8 @@
    Aquí se añaden dos cosas que NO conviene pedirle al modelo:
      a) la silueta desplazada de papel de color (2.ª capa del collage);
      b) el ajuste de tono unificado, para que las 23 fotografías se lean como
-        una sola colección impresa.
+         una sola colección impresa, sin eliminar el color de las imágenes ya
+         colorizadas.
 ----------------------------------------------------------------------------- */
 .cutout {
   position: relative;
@@ -115,8 +116,8 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Unifica el tono documental cálido de toda la colección. */
-  filter: grayscale(0.82) sepia(0.16) contrast(1.04) brightness(1.02)
+  /* Mantiene el acabado documental sin desaturar las imágenes colorizadas. */
+  filter: contrast(1.04) brightness(1.02)
     drop-shadow(0 0.3cqi 0.7cqi rgba(48, 38, 24, 0.24));
 }
 
