@@ -1,0 +1,25 @@
+{
+  "id": "profe-liliana",
+  "source": "profe-liliana.jpeg",
+  "model": "gpt-image-1.5",
+  "quality": "high",
+  "size": "1024x1536",
+  "background": "transparent",
+  "outputFormat": "png",
+  "inputFidelity": "high",
+  "generatedAt": "2026-08-21T20:27:28.786Z",
+  "usage": {
+    "input_tokens": 4714,
+    "input_tokens_details": {
+      "image_tokens": 4483,
+      "text_tokens": 231
+    },
+    "output_tokens": 6519,
+    "output_tokens_details": {
+      "image_tokens": 6240,
+      "text_tokens": 279
+    },
+    "total_tokens": 11233
+  },
+  "prompt": "Edit the supplied real photograph of the author. Preserve the woman's identity with very high fidelity: keep her exact facial features, warm smile, expression, hair, earrings, hand-under-chin pose, hands, and pale satin blouse.\n\nRemove the entire room background, chair, green name banner, and every piece of text. Isolate only the woman as a clean portrait cutout from the top of her hair through the lower torso. Do not invent or alter anatomy, clothing, accessories, age, or facial features.\n\nMatch this editorial collection: authentic documentary photography with a subtle warm cream-and-ink desaturation, muted matte printed-on-paper finish, fine halftone grain, low contrast, and soft midtones. Add a thin, slightly uneven warm-white paper edge around the exact silhouette, as if cut by hand with scissors.\n\nThe final background must be fully transparent. No scene, canvas, frame, caption, letters, logo, watermark, glow, vignette, or drop shadow."
+}

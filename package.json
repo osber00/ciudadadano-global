@@ -8,6 +8,7 @@
     "build": "node scripts/build.mjs",
     "dev": "node scripts/dev.mjs",
     "images": "node scripts/generate-images.mjs",
+    "images:author": "node scripts/edit-author-image.mjs",
     "images:check": "node scripts/check-images.mjs",
     "pdf": "npm run build && node scripts/build-pdf.mjs",
     "pdf:only": "node scripts/build-pdf.mjs",

@@ -409,6 +409,140 @@
 .reveal__content > div > * + * { margin-top: 0.7em; }
 
 /* -----------------------------------------------------------------------------
+   4.1 REFERENCIAS BIBLIOGRÁFICAS
+   Hoja desplegable que conserva la materialidad editorial del recurso.
+----------------------------------------------------------------------------- */
+.references-page { padding-top: 8.4cqi; }
+
+.references-card {
+  margin-top: var(--space-lg);
+  background: var(--paper-100);
+  border-left: 0.8cqi solid var(--teal);
+}
+
+.references-card__summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-md);
+  align-items: center;
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink-800);
+  transition: background-color var(--dur) var(--ease-out);
+}
+
+.references-card__summary::-webkit-details-marker { display: none; }
+.references-card__summary::marker { content: ''; }
+.references-card__summary:hover { background: var(--teal-050); }
+
+.references-card__count {
+  font-family: var(--font-display);
+  font-size: 6.2cqi;
+  line-height: 0.85;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+
+.references-card__heading { display: grid; gap: 0.2cqi; }
+
+.references-card__heading strong {
+  font-family: var(--font-alt);
+  font-size: var(--fs-title);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.references-card__hint {
+  font-size: var(--fs-tiny);
+  line-height: 1.35;
+  color: var(--ink-400);
+}
+
+.references-card__hint--open { display: none; }
+.references-card[open] .references-card__hint--closed { display: none; }
+.references-card[open] .references-card__hint--open { display: block; }
+
+.references-card__toggle {
+  width: 5.4cqi;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--teal-050);
+  color: var(--teal);
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out), transform var(--dur) var(--ease-paper);
+}
+
+.references-card__toggle svg {
+  width: 48%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.references-card__toggle-vertical {
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease-paper);
+}
+
+.references-card[open] .references-card__toggle {
+  background: var(--teal);
+  color: var(--paper-100);
+}
+
+.references-card[open] .references-card__toggle-vertical { transform: scaleY(0); }
+
+.references-list {
+  counter-reset: reference;
+  margin: 0 var(--space-md) var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1.5px dashed var(--ink-200);
+  display: grid;
+  gap: 1.05cqi;
+  animation: references-in var(--dur-slow) var(--ease-out);
+}
+
+.references-list li {
+  counter-increment: reference;
+  position: relative;
+  padding-left: 4.8cqi;
+  font-size: var(--fs-tiny);
+  line-height: 1.34;
+  color: var(--ink-600);
+}
+
+.references-list li::before {
+  content: counter(reference, decimal-leading-zero);
+  position: absolute;
+  top: 0.05em;
+  left: 0;
+  font-family: var(--font-alt);
+  font-weight: 700;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+
+.references-list cite { font-style: italic; }
+
+@keyframes references-in {
+  from { opacity: 0; transform: translateY(-0.8cqi); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .references-list { animation: none; }
+}
+
+@media print {
+  .references-card > .references-list { display: grid !important; }
+  .references-card__hint--closed { display: none !important; }
+  .references-card__hint--open { display: block !important; }
+  .references-card__toggle-vertical { transform: scaleY(0); }
+}
+
+/* -----------------------------------------------------------------------------
    5. PESTAÑAS
 ----------------------------------------------------------------------------- */
 .tabs__list {
