@@ -11,6 +11,7 @@ dist/
 
 # PDF generado
 *.pdf
+!ciudadano-global.pdf
 !docs/info.pdf
 
 # Sistema

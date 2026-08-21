@@ -81,10 +81,12 @@ async function main() {
   fs.writeFileSync(path.join(DIST, 'index.html'), html);
   console.log(`  HTML: ${path.relative(ROOT, path.join(DIST, 'index.html'))}`);
 
-  if (fs.existsSync(PDF_SOURCE)) {
-    fs.copyFileSync(PDF_SOURCE, path.join(DIST, 'ciudadano-global.pdf'));
-    console.log('  PDF descargable: dist\\ciudadano-global.pdf');
+  if (!fs.existsSync(PDF_SOURCE)) {
+    console.error('  Falta ciudadano-global.pdf; ejecuta npm run pdf:only para regenerarlo.');
+    process.exit(1);
   }
+  fs.copyFileSync(PDF_SOURCE, path.join(DIST, 'ciudadano-global.pdf'));
+  console.log('  PDF descargable: dist\\ciudadano-global.pdf');
 
   const totalSize = dirSize(DIST);
   console.log(`\n  Total dist: ${(totalSize / 1024 / 1024).toFixed(2)} MB\n`);
