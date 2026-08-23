@@ -144,6 +144,45 @@
   transition: transform var(--dur-slow) var(--ease-paper);
 }
 
+/* Cada fotografía se asienta como un recorte recién colocado sobre la página. */
+.motion-ready .page:not(.has-entered) .cutout__img {
+  opacity: 0;
+  transform: scale(0.965) rotate(-0.7deg);
+  clip-path: inset(2% 7% 3% 2%);
+}
+
+.motion-ready .page:not(.has-entered) .cutout__silhouette {
+  opacity: 0;
+}
+
+.motion-ready .page.has-entered .cutout__img {
+  animation: cutout-settle 720ms var(--ease-out) both;
+  animation-delay: calc(var(--enter-i, 0) * 90ms + 180ms);
+}
+
+.motion-ready .page.has-entered .cutout__silhouette {
+  animation: cutout-shadow-in 820ms var(--ease-out) both;
+  animation-delay: calc(var(--enter-i, 0) * 90ms + 260ms);
+}
+
+@keyframes cutout-settle {
+  from {
+    opacity: 0;
+    transform: scale(0.965) rotate(-0.7deg);
+    clip-path: inset(2% 7% 3% 2%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes cutout-shadow-in {
+  from { opacity: 0; }
+  to { opacity: 0.9; }
+}
+
 .cutout[data-accent='coral'] { --cutout-accent: var(--coral); }
 .cutout[data-accent='teal'] { --cutout-accent: var(--teal); }
 .cutout[data-accent='mustard'] { --cutout-accent: var(--mustard); }
@@ -155,6 +194,24 @@
     calc(var(--cutout-dx, 1.4cqi) * 1.55),
     calc(var(--cutout-dy, 1.5cqi) * 1.55)
   );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .page:not(.has-entered) .cutout__img {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+
+  .motion-ready .page:not(.has-entered) .cutout__silhouette {
+    opacity: 0.9;
+    transform: translate(var(--cutout-dx, 1.4cqi), var(--cutout-dy, 1.5cqi));
+  }
+
+  .motion-ready .page.has-entered .cutout__img,
+  .motion-ready .page.has-entered .cutout__silhouette {
+    animation: none;
+  }
 }
 
 /* -----------------------------------------------------------------------------

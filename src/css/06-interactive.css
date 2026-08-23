@@ -26,10 +26,11 @@
 }
 
 .hotspot--teal { --hotspot-bg: var(--teal); }
+.hotspot--coral { --hotspot-bg: var(--coral); }
 .hotspot--mustard { --hotspot-bg: var(--mustard); }
 .hotspot--ink { --hotspot-bg: var(--ink); }
 
-/* Anillo que late. Se detiene al interactuar para no distraer. */
+/* Anillo que late mientras el control está a la vista. */
 .hotspot::before {
   content: '';
   position: absolute;
@@ -37,6 +38,9 @@
   border-radius: 50%;
   border: 0.3cqi solid var(--hotspot-bg, var(--coral));
   opacity: 0;
+}
+
+.page.is-active .hotspot:not(.is-visited)::before {
   animation: hotspot-pulse 2.6s var(--ease-out) infinite;
 }
 
@@ -61,6 +65,7 @@
 .hotspot:hover,
 .hotspot:focus-visible {
   transform: scale(1.14);
+  box-shadow: 0 0.35cqi 1.1cqi rgba(48, 38, 24, 0.46);
 }
 .hotspot:hover::before,
 .hotspot:focus-visible::before {
@@ -543,6 +548,191 @@
 }
 
 /* -----------------------------------------------------------------------------
+   ADAPTACIÓN EDITORIAL PARA PDF
+   Se activa únicamente en la copia de DOM preparada por build-pdf.mjs.
+----------------------------------------------------------------------------- */
+.pdf-flip-content,
+.pdf-gloss-definition,
+.pdf-supplement { display: none; }
+
+@media print {
+  .pdf-export .hotspot,
+  .pdf-export .flip.pdf-adapted .flip__inner,
+  .pdf-export .tabs__list { display: none !important; }
+
+  .pdf-export .pdf-flip-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2cqi;
+    padding: var(--space-md);
+    background: var(--paper-100);
+    box-shadow: var(--shadow-paper);
+    text-align: left;
+  }
+
+  .pdf-export .pdf-flip-content strong {
+    font-family: var(--font-alt);
+    font-size: var(--fs-subtitle);
+    color: var(--teal-800);
+  }
+
+  .pdf-export .pdf-flip-content p {
+    font-size: var(--fs-small);
+    line-height: 1.45;
+    color: var(--ink-600);
+  }
+
+  .pdf-export .reveal__icon { display: none; }
+  .pdf-export .reveal__panel { grid-template-rows: 1fr; }
+  .pdf-export .reveal__content { overflow: visible; }
+
+  .pdf-export .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .pdf-export .tabs__panel,
+  .pdf-export .tabs__panel[hidden] {
+    display: block;
+    padding: var(--space-sm);
+    background: var(--paper-100);
+    border-top: 0.55cqi solid var(--teal);
+    box-shadow: var(--shadow-paper);
+    animation: none;
+  }
+
+  .pdf-export .pdf-tab-heading {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-alt);
+    font-size: var(--fs-small);
+    color: var(--teal-800);
+  }
+
+  .pdf-export .tabs__panel .t-body {
+    font-size: var(--fs-tiny);
+    line-height: 1.4;
+  }
+
+  .pdf-export .gloss__pop { display: none; }
+  .pdf-export .pdf-gloss-definition {
+    display: inline;
+    font-weight: 400;
+    color: var(--ink-600);
+  }
+
+  .pdf-export .pdf-supplement {
+    display: block;
+    --pdf-accent: var(--teal);
+  }
+
+  .pdf-export .pdf-supplement__inner {
+    padding: 10cqi var(--margin-page);
+  }
+
+  .pdf-export .pdf-supplement__inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.2cqi;
+    background: var(--pdf-accent);
+  }
+
+  .pdf-export .pdf-supplement__eyebrow {
+    background: var(--pdf-accent);
+    color: var(--paper-100);
+  }
+
+  .pdf-export .pdf-supplement__title {
+    max-width: 13ch;
+    margin-top: var(--space-md);
+  }
+
+  .pdf-export .pdf-supplement__lead {
+    max-width: 55ch;
+    margin-top: var(--space-md);
+  }
+
+  .pdf-export .pdf-scale-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .pdf-export .pdf-scale-detail {
+    min-height: 19cqi;
+    padding: var(--space-md);
+    background: var(--paper-100);
+    border-top: 0.7cqi solid var(--teal);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .pdf-export .pdf-scale-detail:nth-child(-n + 3) {
+    border-top-color: var(--coral);
+  }
+
+  .pdf-export .pdf-scale-detail strong {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-alt);
+    font-size: var(--fs-subtitle);
+    color: var(--ink-800);
+  }
+
+  .pdf-export .pdf-scale-detail p {
+    font-size: var(--fs-small);
+    line-height: 1.4;
+    color: var(--ink-600);
+  }
+
+  .pdf-export .pdf-dialog-content {
+    max-width: none;
+    margin-top: var(--space-lg);
+  }
+
+  .pdf-export .pdf-dialog-content .dialog__facts {
+    gap: var(--space-sm);
+  }
+
+  .pdf-export .pdf-dialog-content .dialog__fact {
+    min-height: 14cqi;
+    padding: var(--space-sm);
+  }
+
+  .pdf-export .pdf-dialog-content .dialog__choices {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .pdf-export .pdf-dialog-choice {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--paper-100);
+    border-top: 0.55cqi solid var(--mustard-800);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .pdf-export .pdf-dialog-choice strong {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-alt);
+    font-size: var(--fs-small);
+    color: var(--ink-800);
+  }
+
+  .pdf-export .pdf-dialog-choice p {
+    font-size: var(--fs-small);
+    line-height: 1.4;
+    color: var(--ink-600);
+  }
+}
+
+/* -----------------------------------------------------------------------------
    5. PESTAÑAS
 ----------------------------------------------------------------------------- */
 .tabs__list {
@@ -715,16 +905,23 @@
   transform: none;
 }
 
-.page.has-entered .enter {
-  animation: enter-up var(--dur-slow) var(--ease-out) forwards;
+.motion-ready .page:not(.has-entered) .enter {
+  opacity: 0;
+  transform: translateY(1.4cqi);
+}
+
+.motion-ready .page.has-entered .enter {
+  animation: enter-up var(--dur-slow) var(--ease-out) both;
   animation-delay: calc(var(--enter-i, 0) * 90ms + 120ms);
 }
 
 @keyframes enter-up {
+  from { opacity: 0; transform: translateY(1.4cqi); }
   to { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .enter { opacity: 1; transform: none; }
-  .page.has-entered .enter { animation: none; }
+  .motion-ready .page:not(.has-entered) .enter { opacity: 1; transform: none; }
+  .motion-ready .page.has-entered .enter { animation: none; }
 }
